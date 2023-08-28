@@ -1,0 +1,25 @@
+version: "3.7"
+services:
+  
+  db:
+    image: mysql:latest
+    container_name: laravel-db
+    restart: unless-stopped
+    environment:
+      MYSQL_ROOT_PASSWORD: Adso2023!
+      MYSQL_DATABASE: adso_db
+      MYSQL_USER: adso_user
+      MYSQL_PASSWORD: Adso2023!
+    volumes:
+      - db_data:/var/lib/mysql
+    ports:
+      - "3306:3306"
+    networks:
+      - laravel
+
+networks:
+  laravel:
+    driver: bridge
+
+volumes:
+    db_data:
